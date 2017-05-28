@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="algorithms," />
 
 
 
@@ -90,12 +90,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gamijin0">
-<meta property="og:url" content="https://gamijin0.github.io/index.html">
+<meta name="description" content="Leetcode 第448题题目链接： 448. Find All Numbers Disappeared in an Array 题目描述：  Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once. Find all">
+<meta name="keywords" content="algorithms">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode448">
+<meta property="og:url" content="https://gamijin0.github.io/2017/05/24/leetcode448/index.html">
 <meta property="og:site_name" content="Gamijin0">
+<meta property="og:description" content="Leetcode 第448题题目链接： 448. Find All Numbers Disappeared in an Array 题目描述：  Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once. Find all">
+<meta property="og:updated_time" content="2017-05-28T06:52:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gamijin0">
+<meta name="twitter:title" content="leetcode448">
+<meta name="twitter:description" content="Leetcode 第448题题目链接： 448. Find All Numbers Disappeared in an Array 题目描述：  Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once. Find all">
 
 
 
@@ -123,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="https://gamijin0.github.io/"/>
+  <link rel="canonical" href="https://gamijin0.github.io/2017/05/24/leetcode448/"/>
 
 
 
 
 
-  <title>Gamijin0</title>
+  <title>leetcode448 | Gamijin0</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -155,9 +160,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -240,9 +243,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -268,9 +271,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/24/leetcode448/" itemprop="url">leetcode448</a></h1>
+          <h1 class="post-title" itemprop="name headline">leetcode448</h1>
         
 
         <div class="post-meta">
@@ -317,9 +318,7 @@
       
 
       
-        
-          
-            <h2 id="Leetcode-第448题"><a href="#Leetcode-第448题" class="headerlink" title="Leetcode 第448题"></a>Leetcode 第448题</h2><p>题目链接： <a href="https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/#/description" target="_blank" rel="external">448. Find All Numbers Disappeared in an Array</a></p>
+        <h2 id="Leetcode-第448题"><a href="#Leetcode-第448题" class="headerlink" title="Leetcode 第448题"></a>Leetcode 第448题</h2><p>题目链接： <a href="https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/#/description" target="_blank" rel="external">448. Find All Numbers Disappeared in an Array</a></p>
 <p>题目描述：</p>
 <blockquote>
 <p>Given an array of integers where <code>1 ≤ a[i] ≤ n (n = size of array)</code>, some elements appear twice and others appear once.</p>
@@ -330,312 +329,72 @@
 <p>代码如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findDisappearedNumbers</span><span class="params">(self, nums)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type nums: List[int]</div><div class="line">        :rtype: List[int]</div><div class="line">        """</div><div class="line">        i=<span class="number">0</span></div><div class="line">        res = []</div><div class="line">        <span class="keyword">while</span>(i&lt;len(nums)):</div><div class="line">            <span class="keyword">if</span>(nums[i]!=<span class="number">-1</span> <span class="keyword">and</span> nums[i] != i+<span class="number">1</span>):</div><div class="line">                temp = nums[nums[i]<span class="number">-1</span>]</div><div class="line">                <span class="keyword">if</span>(nums[i]==temp):</div><div class="line">                    nums[i]=<span class="number">-1</span></div><div class="line">                <span class="keyword">else</span>:</div><div class="line">                    nums[nums[i]<span class="number">-1</span>] = nums[i]</div><div class="line">                    nums[i] = temp</div><div class="line">                    <span class="keyword">continue</span></div><div class="line">            i += <span class="number">1</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> i,v <span class="keyword">in</span> enumerate(nums):</div><div class="line">            <span class="keyword">if</span>(v==<span class="number">-1</span>):</div><div class="line">                res.append(i+<span class="number">1</span>)</div><div class="line"></div><div class="line">        <span class="keyword">return</span> res</div></pre></td></tr></table></figure>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://gamijin0.github.io/2017/05/23/leetcode442/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gamijin0">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/mypuppy.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gamijin0">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/23/leetcode442/" itemprop="url">leetcode442</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-23T19:56:32+08:00">
-                2017-05-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/algorithms/" rel="tag"># algorithms</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
         
-          
-            <h1 id="leetcode-第442题"><a href="#leetcode-第442题" class="headerlink" title="leetcode 第442题"></a>leetcode 第442题</h1><p>题目链接：<a href="https://leetcode.com/problems/find-all-duplicates-in-an-array/#/description" target="_blank" rel="external">Find All Duplicates in an Array</a></p>
-<hr>
-<blockquote>
-<p>题目描述：给一个包含 <code>n</code> 个数的数组 <code>a</code>，其中有的出现两次，有的出现一次，而且所有的数都满足 <code>1 &lt;= a[i] &lt;= n</code>，目标：找出所有出现重复的数，要求：不使用额外空间，时间复杂度 <code>O(n)</code></p>
-</blockquote>
-<p>乍一看感觉需要先排序，然后遍历，然后想到  <em>计数排序</em> 这类排序方法的思想：<em>把对应元素放到对应位置上</em></p>
-<hr>
-<p>于是有一个解决方法：</p>
-<ol>
-<li>一个指针指向起始位置</li>
-</ol>
-<ul>
-<li>若这个指针指向的数字与其索引不相符合 且 这个数字不是 <code>1</code> 时，<em>尝试</em> 将这个数字与这个数字对应的索引地址上的数交换，否则指针向前</li>
-<li>若待交换时两个数相同，则说明出现了重复的数，<em>交换失败</em>，此时记录下这个数，在此时指针处标记 <code>-1</code> ，指针继续向前</li>
-<li>若交换成功，则指针不移动，重复 <code>步骤1</code></li>
-<li>若指针到达数组尾部，结束</li>
-</ul>
-<hr>
-<p>Python代码如下：</p>
-<pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
-    <span class="function"><span class="keyword">def</span> <span class="title">findDuplicates</span><span class="params">(self, nums)</span>:</span>
-        <span class="string">"""
-        :type nums: List[int]
-        :rtype: List[int]
-        """</span>
-        i=<span class="number">0</span>
-        res = []
-        <span class="keyword">while</span>(i&lt;len(nums)):
-            <span class="keyword">if</span>(nums[i]!=<span class="number">-1</span> <span class="keyword">and</span> nums[i] != i+<span class="number">1</span>):
-                temp = nums[nums[i]<span class="number">-1</span>]
-                <span class="keyword">if</span>(nums[i]==temp):
-                    res.append(temp)
-                    nums[i]=<span class="number">-1</span>
-                <span class="keyword">else</span>:
-                    nums[nums[i]<span class="number">-1</span>] = nums[i]
-                    nums[i] = temp
-                    <span class="keyword">continue</span>
-            i += <span class="number">1</span>
-
-        <span class="keyword">return</span> res
-</code></pre>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://gamijin0.github.io/2017/05/23/Start-with-Hexo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gamijin0">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/mypuppy.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gamijin0">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/23/Start-with-Hexo/" itemprop="url">Start with Hexo</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-23T19:16:26+08:00">
-                2017-05-23
-              </time>
+              <a href="/2017/05/23/leetcode442/" rel="next" title="leetcode442">
+                <i class="fa fa-chevron-left"></i> leetcode442
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>时隔很久又开始写个人博客了</p>
-<p>之前的个人博客因为没有注意保存而全部弄丢了，于是打算重新开始</p>
-<p>用的是 <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">Hexo</a> + <a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">Next</a></p>
-<p><a href="http://transcoder.tradaquan.com/tc?srd=1&amp;dict=32&amp;h5ad=1&amp;bdenc=1&amp;lid=11716910200547761291&amp;title=Markdown%E8%AF%AD%E6%B3%95%E8%AF%B4%E6%98%8E%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E7%89%88%29&amp;nsrc=IlPT2AEptyoA_yixCFOxXnANedT62v3IEQGG_y6IAj35o939h47aUbBnYyH9NHSFHYCb9mC4ccZSrizfQjm" target="_blank" rel="external">markdown 语法</a> 也不怎么记得了，便写边回顾吧</p>
-<blockquote>
-<p>青锋断刃将重铸<br>无冕者再临为王</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -643,6 +402,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -662,8 +425,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/mypuppy.jpg"
@@ -716,6 +488,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-第448题"><span class="nav-number">1.</span> <span class="nav-text">Leetcode 第448题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -836,6 +624,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 
