@@ -97,7 +97,7 @@
 <meta property="og:url" content="https://gamijin0.github.io/2017/05/23/leetcode442/index.html">
 <meta property="og:site_name" content="Gamijin0">
 <meta property="og:description" content="leetcode 第442题题目链接：Find All Duplicates in an Array   题目描述：给一个包含 n 个数的数组 a，其中有的出现两次，有的出现一次，而且所有的数都满足 1 &amp;lt;= a[i] &amp;lt;= n，目标：找出所有出现重复的数，要求：不使用额外空间，时间复杂度 O(n)  乍一看感觉需要先排序，然后遍历，然后想到  计数排序 这类排序方法的思想：把对应元素">
-<meta property="og:updated_time" content="2017-05-23T15:00:47.000Z">
+<meta property="og:updated_time" content="2017-05-28T08:17:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode442">
 <meta name="twitter:description" content="leetcode 第442题题目链接：Find All Duplicates in an Array   题目描述：给一个包含 n 个数的数组 a，其中有的出现两次，有的出现一次，而且所有的数都满足 1 &amp;lt;= a[i] &amp;lt;= n，目标：找出所有出现重复的数，要求：不使用额外空间，时间复杂度 O(n)  乍一看感觉需要先排序，然后遍历，然后想到  计数排序 这类排序方法的思想：把对应元素">
@@ -328,16 +328,22 @@
 <p>于是有一个解决方法：</p>
 <ol>
 <li>一个指针指向起始位置</li>
-</ol>
-<ul>
-<li>若这个指针指向的数字与其索引不相符合 且 这个数字不是 <code>1</code> 时，<em>尝试</em> 将这个数字与这个数字对应的索引地址上的数交换，否则指针向前</li>
+<li>若这个指针指向的数字与其索引不相符合 且 这个数字不是 <code>-1</code> 时，<em>尝试</em> 将这个数字与这个数字对应的索引地址上的数交换，否则指针向前</li>
 <li>若待交换时两个数相同，则说明出现了重复的数，<em>交换失败</em>，此时记录下这个数，在此时指针处标记 <code>-1</code> ，指针继续向前</li>
 <li>若交换成功，则指针不移动，重复 <code>步骤1</code></li>
 <li>若指针到达数组尾部，结束</li>
-</ul>
+</ol>
+<hr>
+<p>###流程图如下</p>
+<div id="flowchart-0" class="flow-chart"></div>
+
+
+
 <hr>
 <p>Python代码如下：</p>
-<pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
+<pre><code class="python">
+
+<span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
     <span class="function"><span class="keyword">def</span> <span class="title">findDuplicates</span><span class="params">(self, nums)</span>:</span>
         <span class="string">"""
         :type nums: List[int]
@@ -359,6 +365,31 @@
 
         <span class="keyword">return</span> res
 </code></pre>
+<p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">
+init=>start: i=0,res=[ ]
+isExist=>condition: nums[i]-1 == i 
+&& 
+nums[i] != -1
+swap=>operation: 交换 nums[i] 与 nums[ nums[i]-1 ]
+go=>operation: i += 1
+finish=>condition: i > len(nums)
+sameNum=>condition: 判断是否重复:
+nums[ nums[i]-1 ] ==
+nums[i]
+sameOperation=>operation: 出现重复数字,
+将nums[ nums[i]-1 ]保存在res中,
+nums[i]=-1
+
+
+ex=>end: 返回res
+
+init->isExist
+isExist(yes)->sameNum
+isExist(no,right)->go(right)->finish(no)->isExist
+finish(no,right)->isExist
+finish(yes)->ex
+sameNum(yes,right)->sameOperation->go
+sameNum(no)->swap-go</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p>
 
       
     </div>
@@ -485,7 +516,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
